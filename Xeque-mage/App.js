@@ -5,22 +5,53 @@ import { StyleSheet, View } from 'react-native';
 import ImageViewer from './components/ImageViewer';
 import Button from './components/Button';
 
+import * as ImagePicker from 'expo-image-picker';
+
+import { useState } from 'react';
+  
 const PlaceholderImage = require('./assets/images/background-image.png');
 
 
 export default function App() {
-  return (
+
+  const [showAppOptions, setShowAppOptions] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+      setShowAppOptions(true);
+
+    } else {
+      alert('You did not select any image.');
+    }
+    }
+  
+    return (
     <View style={styles.container}>
        <View style={styles.imageContainer}>
-       <ImageViewer placeholderImageSource={PlaceholderImage} />
+       <ImageViewer 
+        placeholderImageSource={PlaceholderImage}
+        selectedImage={selectedImage} />
       </View>
+      {showAppOptions ? (
+        <View />
+      ) : (
       <View style={styles.footerContainer}>
-        <Button theme="primary" label="Escolha a foto" />
-        <Button label="Use esta foto" />
+        <Button theme="primary" label="Escolha a foto" onPress={pickImageAsync}  />
+        <Button label="Use esta foto" onPress={() => setShowAppOptions(true)} />
       </View>
+      )}
       <StatusBar style="auto" />
     </View>
-  );
+    );
+
+  
 }
 
 const styles = StyleSheet.create({
@@ -39,3 +70,5 @@ const styles = StyleSheet.create({
   },
   
 });
+
+//parei na inserção de outros botões - cria de modal
