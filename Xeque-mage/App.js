@@ -13,6 +13,8 @@ import EmojiSticker from './components/EmojiSticker';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
+import domtoimage from 'dom-to-image';
+
 
 
 const PlaceholderImage = require('./assets/images/background-image.png');
@@ -30,7 +32,7 @@ export default function App() {
     if (status === null) {
       requestPermission();
     }
-  }, [status, requestPermission]);
+  });
 
   const pickImageAsync = async () => {
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -87,6 +89,7 @@ export default function App() {
       }
     };
     
+    
   
   
     return (
@@ -117,7 +120,7 @@ export default function App() {
       <EmojiPicker isVisible={isModalVisible} onClose={() => setIsModalVisible(false)}>    
         <EmojiList onSelect={setPickedEmoji} onClose={() => setIsModalVisible(false)}/>
       </EmojiPicker>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </GestureHandlerRootView>
     );
 }
