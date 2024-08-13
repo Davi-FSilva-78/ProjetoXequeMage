@@ -1,20 +1,21 @@
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet  } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Pressable, View  } from 'react-native';
 
-const BotaoReutilizavel = ({ label, corFundo, onPress}) => {
+export default function BotaoReutilizavel  ({ onPress, label }) {
 
-const botaoStyle = {
-  backgroundColor: corFundo,
+  return (
+    <View>
+    <Pressable onPress={onPress} style={styles.botaoStyle}>
+    <Text> {label}</Text>
+    </Pressable>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  botaoStyle: {backgroundColor: '#fff',
   padding: 10,
   borderRadius: 5,
-  width: 200
-};
+  width: 200}
+});
 
-return (
-  <TouchableOpacity onPress={onPress} style={botaoStyle}>
-  <Text> {label}</Text>
-  </TouchableOpacity>
-);
 
-}
-export default BotaoReutilizavel;
