@@ -1,7 +1,11 @@
 import { Text, View, StyleSheet, SafeAreaView, ScrollView, StatusBar, Image } from "react-native";
+import {useState, useRef, useEffect } from 'react';
 import BotaoReutilizavel from "../components/BotaoReutilizavel";
+import { hideAsync } from "expo-splash-screen";
 
-  const App = () => {
+  export default function App() {
+
+    const [isImageVisible, setImageVisible] = useState(null)
     const handlePress = () => {
       alert('Faz o L!');
     }
@@ -17,7 +21,7 @@ import BotaoReutilizavel from "../components/BotaoReutilizavel";
         </View>
 
         <Image
-        style={styles.tinyLogo}
+        style={styles.timao}
         source={require('../components/img/cortinas.jpg')}
         />
         
@@ -34,4 +38,4 @@ import BotaoReutilizavel from "../components/BotaoReutilizavel";
     
   
 
-  export default App;
+ 
