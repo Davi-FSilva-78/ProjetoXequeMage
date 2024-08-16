@@ -4,9 +4,14 @@ export default function BotaoReutilizavel  ({ onPress, label }) {
 
   return (
     <View>
-    <Pressable onPress={onPress} style={styles.botaoStyle}>
-    <Text> {label}</Text>
-    </Pressable>
+      <Pressable 
+      onPress={onPress} 
+      style={styles.botaoStyle}
+    >
+        
+        <Text> {label}</Text>
+      
+      </Pressable>
     </View>
   );
 }
