@@ -10,31 +10,30 @@ const cortinasImage = require('../assets/images/cortinas.jpg'); //imagem cortina
 const peixaoImage = require('../assets/images/peixao.png'); //imagem santao
 
 export default function App() {
+  
   const [selectedImage, setSelectedImage] = useState(PlaceholderImage);
-  const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
 
-
-  const trocarImagem = () => {
-    setSelectedImage( prevImg => {
-      return prevImg === PlaceholderImage ? cortinasImage : peixaoImage;
-  });
-       
+  const trocarImagem = (image) => {
+    setSelectedImage(image);
     };
 
   
   return (
     <View style={styles.container}>
+      
       <View style={styles.imageContainer}> 
         <ImageViewer 
         placeholderImageSource = {PlaceholderImage}
         selectedImage={selectedImage}
         />
       </View>
-      <StatusBar style="auto" />
 
       <View>
-        <BotaoReutilizavel onPress={trocarImagem} label={"Cortinas"}/>
+        <BotaoReutilizavel onPress={ () => trocarImagem(cortinasImage) } label={"Cortinas"}/>
+        <BotaoReutilizavel onPress={ () => trocarImagem(peixaoImage) } label={"Peixao"}/>
       </View>
+
+      <StatusBar style="auto" />
 
     </View>
 
