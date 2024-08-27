@@ -6,20 +6,39 @@ import BotaoReutilizavel from "../components/BotaoReutilizavel";
 import ImageViewer from '../components/imageViewer';
 
 const PlaceholderImage = require('../assets/images/background.png'); //imagem inicial
+const cortinasImage = require('../assets/images/cortinas.jpg'); //imagem cortinas
+const peixaoImage = require('../assets/images/peixao.png'); //imagem santao
 
 export default function App() {
-
-  const [isImageVisible, setImageVisible] = useState<boolean | null>(null);
+  const [selectedImage, setSelectedImage] = useState(PlaceholderImage);
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
 
 
+  const trocarImagem = () => {
+    setSelectedImage( prevImg => {
+      return prevImg === PlaceholderImage ? cortinasImage : peixaoImage;
+  });
+       
+    };
+
+  
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}> 
-        <ImageViewer placeholderImageSource = {PlaceholderImage}/>
+        <ImageViewer 
+        placeholderImageSource = {PlaceholderImage}
+        selectedImage={selectedImage}
+        />
       </View>
       <StatusBar style="auto" />
+
+      <View>
+        <BotaoReutilizavel onPress={trocarImagem} label={"Cortinas"}/>
+      </View>
+
     </View>
+
+   
   );
 };
 

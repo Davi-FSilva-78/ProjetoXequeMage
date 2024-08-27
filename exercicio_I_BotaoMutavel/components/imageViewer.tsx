@@ -3,11 +3,15 @@ import * as React from 'react';
 
 interface ImageViewerProps {
     placeholderImageSource: ImageSourcePropType;
+    selectedImage: any;
 }
 
-export default function ImageViewer ({ placeholderImageSource }: ImageViewerProps) {
+export default function ImageViewer ({ placeholderImageSource, selectedImage }: ImageViewerProps) {
+    
+    const imageSource = selectedImage  ? { uri: selectedImage } : placeholderImageSource;
+
     return (
-        <Image source={placeholderImageSource} style={styles.image}/>
+        <Image source={selectedImage} style={styles.image}/>
     );
 }
 
