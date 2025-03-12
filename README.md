@@ -1,12 +1,17 @@
-# Davi-Silva-pam-I
-Aula 002: 
+# Xeque Mage
 
-- Criando função para adicionar botão 
+Xeque Mage é um app que tem como objetivo a inserçã ode uma foto e sua edição;
 
-Xeque-mage: 
+## Funcionalidades
 
-A1 
-- Cria Pasta Xeque-mage (nome do app de edição de foto);
-- Adiciona pastas components e assets;
-- Adiciona funções de visualizador de fotos e botões;
+- **Interface clean:** Desing intuitivo e fácil de usar.
+- **Atualizaçã ode foto:** Botaão para Adicionar ou mudar a foto.
+- **Botão de estilização:** Botaão que adiciona Emojis a foto.
+- **Dowload:** Botão para baixar foto modificada.
+
+# Documentação
+
+- [React Native](https://reactnative.dev/docs/getting-started)
+- [Expo](https://docs.expo.dev/router/introduction/)
+
 
