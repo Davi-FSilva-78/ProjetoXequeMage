@@ -1,6 +1,6 @@
-# Xeque Mage
+# Xeque Mage🎥📸📷
 
-Xeque Mage é um app que tem como objetivo a inserçã ode uma foto e sua edição;
+Xeque Mage é um app que tem como objetivo a inserçã ode uma foto e sua edição;📝📸
 
 ## Funcionalidades
 
