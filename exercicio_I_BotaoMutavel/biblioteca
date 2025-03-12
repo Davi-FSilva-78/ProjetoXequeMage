@@ -1,9 +1,0 @@
-instalações
-
-1 - npm install; 
-
-2 - npx expo install react-dom react-native-web @expo/metro-runtime
-Para executar o projeto na web essas dependencias ajudam na execução
-
-3 - npm install @types/react@latest react@latest
-Para atualizar dependências types e react
